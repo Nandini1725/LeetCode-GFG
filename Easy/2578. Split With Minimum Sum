@@ -1,0 +1,30 @@
+class Solution {
+    public int splitNum(int num) {
+        int n=num;
+        int count =0;
+        while(n!=0){
+            n=n/10;
+            count++;
+        }
+        int[] arr=new int[count];
+        int j=0;
+        while(num!=0){
+            int rem=num%10;
+            arr[j]=rem;
+            j++;
+            num=num/10;
+        }
+        Arrays.sort(arr);
+        int num1=0;
+        int num2=0;
+        for(int i=0;i<arr.length;i++){
+            if(i%2==0){
+                num1 = num1*10+arr[i];
+            }
+            else{
+                num2 = num2*10+arr[i];
+            }   
+        }
+        return num1+num2;
+    }
+}
