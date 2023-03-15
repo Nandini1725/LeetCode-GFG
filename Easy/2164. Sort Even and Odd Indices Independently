@@ -1,0 +1,45 @@
+class Solution {
+    public int[] sortEvenOdd(int[] nums) {
+        int[] odd = new int[nums.length/2];
+        int[] even;
+
+        if(nums.length%2!=0){
+            even = new int[nums.length/2 + 1];
+        }
+        else{
+            even = new int[nums.length/2];
+        }
+        int k=0,p=0;
+        for(int i=0;i<nums.length;i++){
+            if(i%2==0){
+                even[k++] = nums[i];
+            }
+            else{
+                odd[p++] = nums[i];
+            }
+        }
+        int[] arr = new int[nums.length];
+
+        Arrays.sort(even);
+        for(int i=0;i<nums.length/2;i++){
+            odd[i] = odd[i]*(-1);
+        }
+
+        Arrays.sort(odd);
+        for(int i=0;i<nums.length/2;i++){
+            odd[i] = odd[i]*(-1);
+        }
+
+        int j=0;
+        for(int i=0;i<nums.length/2;i++){
+            arr[j++] = even[i];
+            arr[j++] = odd[i];
+        }
+
+        if(nums.length%2 !=0){
+            arr[nums.length-1] = even[even.length-1];
+        }
+
+        return arr;
+    }
+}
