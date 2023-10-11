@@ -24,11 +24,11 @@ class GFG {
 class Solution {
     static int setBits(int N) {
         // code here
-        int count=0;
+        int cnt=0;
         while(N!=0){
-            N=N&(N-1);
-            count++;
+            N = N&(N-1);
+            cnt++;
         }
-        return count;
+        return cnt;
     }
 }
